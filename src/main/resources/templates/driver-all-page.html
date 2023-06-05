@@ -1,0 +1,18 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<table>
+			<tr th:each="temp : ${drivers}">
+				<td th:text="${temp.getIdd()}"> </td>
+				<td th:text="${temp.getName()}"> </td>
+				<td th:text="${temp.getSurname()}"> </td>
+				<td>
+					<ul>
+						<li th:each="categories : ${temp.getCategories()}">
+							<span th:text="${categories}"></span>
+						</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<form action="#" th:action="@{/driver/update/__${id}__}" th:object="${driver}" method="post"   >
+		
+			<table>
+				<tr>
+					<td>Driver name:</td>
+					<td> <input type="text" th:field="*{name}"  /></td>
+					<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}" > </td>
+				</tr>
+				
+				<tr>
+					<td>Driver surname:</td>
+					<td> <input type="text" th:field="*{surname}" /></td>
+					<td th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" > </td>
+				</tr>
+				
+				
+				<tr>
+					<td>Driver qualification:</td>
+					<td> <select name="categories">
+					    <option th:each="categoriesOpt : ${T(lv.venta.models.Buscategory).values()}" 
+					        th:value="${categoriesOpt}" th:text="${categoriesOpt}"></option>
+						</select>
+					</td>
+	
+				</tr>
+				
+				<tr>
+					<td>  <button type="submit"> Update Driver! </button> </td>
+				</tr>
+				
+			</table>
+		
+		
+		</form>
+	</body>
+</html>

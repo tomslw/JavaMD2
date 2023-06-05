@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<table>
+			<tr th:each="temp : ${trips}">
+				<td th:text="${temp.getIdtr()}"> Id</td>
+				<td th:text="${temp.getDriver().getName()}"> Driver</td>
+				<td th:text="${temp.getStartDateTime()}">  Leaves</td>
+				<td th:text="${temp.getDuration()}"> H</td>
+				<td>
+					<ul>
+						<li th:each="ticket : ${temp.getTickets()}">
+							<span th:text="${ticket.getPrice()}"></span>
+							<span th:text="${ticket.isChild()}"></span>
+							<span th:text="${ticket.getPurchaseDateTime()}"></span>
+						</li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li th:each="ticket : ${temp.getCities()}">
+							<span th:text="${ticket.getTitle()}"></span>
+						</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

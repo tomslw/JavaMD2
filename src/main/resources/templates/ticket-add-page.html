@@ -1,0 +1,43 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<form action="#" th:action="@{/ticket/add/}" th:object="${ticket}" method="post"   >
+		
+			<table>
+				<tr>
+					<td>Is this a child ticket:</td>
+					<td> <input type="checkbox" th:field="*{child}" /></td>
+				</tr>
+				
+				<tr>
+					<td>Price:</td>
+					<td> <input type="text" th:field="*{price}" /></td>
+					<td th:if="${#fields.hasErrors('price')}" th:errors="*{price}" > </td>
+				</tr>
+				
+				
+				<tr>
+					<td>Trip:</td>
+					<td> <select th:field="*{trip}">
+					    <option th:each="opt : ${trips}" 
+					        th:value="${opt.idtr}" th:text="${opt}"></option>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>Casheer:</td>
+					<td> <select th:field="*{cashier}">
+					    <option th:each="opt : ${cashiers}" 
+					        th:value="${opt.idc}" th:text="${opt.getName()}"></option>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>  <button type="submit"> Add Ticket! </button> </td>
+				</tr>
+				
+			</table>
+		</form>
+	</body>
+</html>

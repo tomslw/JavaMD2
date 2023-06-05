@@ -1,0 +1,11 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<table>
+			<tr th:each="temp : ${handlers}">
+				<td  >
+				<a th:text="${temp}" th:href="${temp}" target="_blank" /> 	
+				 </td>
+			</tr>
+		</table>
+	</body>
+</html>
